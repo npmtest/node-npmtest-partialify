@@ -1,1 +1,40 @@
-{     "devDependencies": {         "partialify": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-partialify",     "homepage": "https://github.com/npmtest/node-npmtest-partialify",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-partialify.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [partialify (v3.1.6)](https://github.com/bclinkinbeard/partialify#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-partialify.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-partialify) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-partialify.svg)](https://travis-ci.org/npmtest/node-npmtest-partialify)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "partialify": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-partialify",
+    "keywords": [
+        "coverage",
+        "test",
+        "partialify"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_partialify.js",
+    "name": "npmtest-partialify",
+    "nameAlias": "npmtest_partialify",
+    "nameOriginal": "npmtest-partialify",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-partialify.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
